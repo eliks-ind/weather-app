@@ -3,6 +3,7 @@ import React from "react";
 interface Weather {
   name: string;
   sys: { country: string };
+  coord: { lon: number; lat: number };
   main: { temp: number; humidity: number };
   weather: [{ description: string }];
   wind: { speed: number };
@@ -15,6 +16,9 @@ function WeatherDisplay({ weather }: { weather: Weather }) {
       <h2>
         {weather.name}, {weather.sys.country}
       </h2>
+      <p>
+        Location: {weather.coord.lon}, {weather.coord.lat}
+      </p>
       <p>Temperature: {weather.main.temp}°C</p>
       <p>Condition: {weather.weather[0].description}</p>
       <p>Humidity: {weather.main.humidity}%</p>
